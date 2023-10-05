@@ -178,6 +178,7 @@ header .intro-text .skills {
     font-size: 1.5em;
   }
 }
+
 section {
   padding: 100px 0;
 }
@@ -197,6 +198,8 @@ section.success {
     padding-top: 75px;
   }
 }
+
+
 #portfolio .portfolio-item {
   margin: 0 0 15px;
   right: 0;
