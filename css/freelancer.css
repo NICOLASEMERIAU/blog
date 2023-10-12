@@ -198,7 +198,19 @@ section.success {
     padding-top: 75px;
   }
 }
-
+.title{
+  margin-top: 100px;
+}
+.news p
+{
+    background-color: red;
+    margin-top:0px;
+}
+.news
+{
+    width:70%;
+    margin:auto;
+}
 
 #portfolio .portfolio-item {
   margin: 0 0 15px;

@@ -1,5 +1,5 @@
-<?php ob_start(); ?>
-
+<?php ob_start(); 
+$title= "Accueil";?>
 <!-- Header -->
     <header>
         <div class="container">
@@ -51,7 +51,10 @@
                     <h2>Accès au blog</h2>
                     <hr class="star-light">
                     <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <a href="index.php?action=list" class="btn btn-lg btn-outline"> Bienvenue sur le blog  </a>
+                        <a href="index.php?action=list" class="btn btn-lg btn-outline"> Simple visite  </a>
+                     </div>
+                     <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <a href="#connexion" class="btn btn-lg btn-outline" data-toggle="modal"> Se connecter  </a>
                      </div>
                 </div>
             </div>
@@ -112,6 +115,58 @@
             </div>
         </div>
     </section>
+
+        <!-- Connexion Modals -->
+        <div class="portfolio-modal modal fade" id="connexion" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                        <form action="index.php?action=connect" method="POST">
+                            <h4>Connexion</h4>
+                            <div>
+
+                            <label><b>Mail</b></label>
+                            <input type="text" placeholder="Entrer votre mail" name="mail" required>
+                            </div>
+
+                            <div>
+
+                            <label><b>Mot de passe</b></label>
+                            <input type="password" placeholder="Entrer votre mot de passe" name="password" required>
+                            </div>
+
+                            <input type="submit" id='submit' value='LOGIN' >
+                        </form>
+                            <br /><br /><br /><br /><h4>    
+                                Inscription
+                            </h4>
+                        <form action="index.php?action=register" method="post">
+                           <div>
+                              <label for="mail">Adresse mail</label><br />
+                              <input type="text" placeholder="Entrer votre mail" id="mail" name="mail" required/>
+                           </div>
+                           <div>
+                              <label for="password">Mot de passe</label><br />
+                              <input type="text" placeholder="Entrer votre mot de passe" id="password" name="password" required/>
+                           </div>
+                           <div>
+                              <input type="submit" />
+                           </div>
+                        </form>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- jQuery -->

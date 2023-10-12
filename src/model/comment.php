@@ -39,6 +39,28 @@ class CommentRepository
         }
 
         return $comments;
+    }    
+    
+    public function getCommentsMultipleArticles(): array
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM comments ORDER BY comment_date DESC"
+        );
+        $statement->execute();
+
+        $comments = [];
+        while (($row = $statement->fetch())) {
+            $comment = new Comment();
+            $comment->identifier = $row['id'];
+            $comment->author = $row['author'];
+            $comment->frenchCreationDate = $row['french_creation_date'];
+            $comment->comment = $row['comment'];
+            $comment->post = $row['post_id'];
+
+            $comments[] = $comment;
+        }
+
+        return $comments;
     }
 
     public function getComment(string $identifier): ?Comment
