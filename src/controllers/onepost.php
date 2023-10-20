@@ -1,34 +1,33 @@
 <?php
 
-namespace Application\Controllers\Listpost;
+namespace Application\Controllers\OnePost;
 
 require_once('src/lib/database.php');
-require_once('src/model/post.php');
-require_once('src/model/postrepository.php');
 require_once('src/model/comment.php');
 require_once('src/model/commentrepository.php');
+require_once('src/model/post.php');
+require_once('src/model/postrepository.php');
 
 use Application\Lib\Database\Database;
-use Application\Model\PostRepository\PostRepository;
-use Application\Model\Post\Post;
 use Application\Model\CommentRepository\CommentRepository;
 use Application\Model\Comment\Comment;
+use Application\Model\PostRepository\PostRepository;
+use Application\Model\Post\Post;
 
-class Listpost
+class OnePost
 {
-    public function execute()
+    public function execute(string $identifier)
     {
-
         $connexion = new Database();
 
         $postRepository = new PostRepository();
         $postRepository->connexion = $connexion;
-        $posts = $postRepository->getPosts();
+        $post = $postRepository->getPost($identifier);
 
         $commentRepository = new CommentRepository();
         $commentRepository->connexion = $connexion;
-        $comments = $commentRepository->getCommentsMultipleArticles();
+        $comments = $commentRepository->getComments($identifier);
 
-        require('templates/listpost.php');
+        require('templates/post.php');
     }
 }
