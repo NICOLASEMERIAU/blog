@@ -1,20 +1,16 @@
 <?php
 
-namespace Application\Controllers\Listpost;
+namespace Application\Controllers\AdminListPost;
 
 require_once('src/lib/database.php');
 require_once('src/model/post.php');
 require_once('src/model/postrepository.php');
-require_once('src/model/comment.php');
-require_once('src/model/commentrepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\PostRepository\PostRepository;
 use Application\Model\Post\Post;
-use Application\Model\CommentRepository\CommentRepository;
-use Application\Model\Comment\Comment;
 
-class Listpost
+class AdminListpost
 {
     public function execute()
     {
@@ -25,10 +21,6 @@ class Listpost
         $postRepository->connexion = $connexion;
         $posts = $postRepository->getPosts();
 
-        $commentRepository = new CommentRepository();
-        $commentRepository->connexion = $connexion;
-        $comments = $commentRepository->getCommentsMultipleArticles();
-
-        require('templates/listpost.php');
+        require('templates/adminlistpost.php');
     }
 }

@@ -50,14 +50,18 @@
                         <a href="index.php#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                    <a href="index.php#about">Qui suis-je?</a>
+                    <a href="index.php?action=admin">Les posts</a>
                     </li>
+                    <?php
+                    if ($_SESSION['role_id'] === '3') 
+                   {
+                    ?>
                     <li class="page-scroll">
-                    <a href="index.php#blog">Blog</a>
+                        <a href="index.php?action=adminlistuser">Les utilisateurs</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="index.php#contact">Contact</a>
-                    </li>
+                    <?php
+                   }
+                    ?>
                     <li class="page-scroll">
                         <a href="index.php?action=disconnect">Se déconnecter</a>
                     </li>
@@ -76,7 +80,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                     <?php
-                    if (isset($_SESSION["role_id"]) && $_SESSION["role_id"] > "1")
+                    if ($_SESSION["role_id"] === "3")
                     {
                         ?>
                                 <h3>Administration</h3>

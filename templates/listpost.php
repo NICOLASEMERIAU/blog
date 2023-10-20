@@ -1,4 +1,5 @@
-<?php $title = "Les posts du blog"; ?>
+<?php
+$title = "Les posts du blog"; ?>
 
 <?php ob_start(); ?>
     <!-- Portfolio Grid Section -->
@@ -6,11 +7,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Blog</h2>
+                    <h2>Bienvenue
+                    <?php
+                    if (isset($_SESSION["firstname"]))
+                    {
+                        echo $_SESSION["firstname"];
+                    }    ?>
+
+                    </h2>
                     <hr class="star-primary">
                 </div>
             </div>
-
             <?php
             foreach ($posts as $post) {
             ?>
@@ -45,7 +52,6 @@
     </section>
 
 <?php 
-var_dump($connect);
 $content = ob_get_clean(); ?>
 
 <?php require('layout.php') ?>
