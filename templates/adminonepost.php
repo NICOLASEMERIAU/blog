@@ -30,13 +30,13 @@
                             </h4>
                             <form action="index.php?action=adminupdatepost" method="post">
                             <input id="post_id" name="post_id" type="hidden" value=<?= $post->identifier?>>
-                            <div>
-                              <label for="title">Titre</label><br />
-                              <textarea id="title" name="title"><?= htmlspecialchars($post->title) ?></textarea>
+                            <div class="mb-3">
+                              <label for="title" class="form-label">Titre</label><br />
+                              <textarea id="title" name="title" class="form-control"><?= htmlspecialchars($post->title) ?></textarea>
                            </div>
-                           <div>
-                           <label for="img">Choix de l'image</label><br />
-                            <select name="img" size="6">
+                           <div class="mb-3">
+                           <label for="img" class="form-label">Choix de l'image</label><br />
+                            <select class="form-select" name="img" size="6">
                             <option value="cake.png" <?php if ($post->image === "cake.png"){echo 'selected';} ?>>cake</option>
                             <option value="cabin.png" <?php if ($post->image === "cabin.png"){echo 'selected';} ?>>cabin</option>
                             <option value="circus.png" <?php if ($post->image === "circus.png"){echo 'selected';} ?>>circus</option>
@@ -45,16 +45,16 @@
                             <option value="submarine.png" <?php if ($post->image === "submarine.png"){echo 'selected';} ?>>submarine</option>
                             </select>
                                 </div>
-                           <div>
-                              <label for="chapo">En bref</label><br />
-                              <textarea id="chapo" name="chapo"><?= htmlspecialchars($post->chapo) ?></textarea>
+                           <div class="mb-3">
+                              <label for="chapo" class="form-label">En bref</label><br />
+                              <textarea id="chapo" name="chapo" class="form-control"><?= htmlspecialchars($post->chapo) ?></textarea>
                            </div>
-                           <div>
-                              <label for="content">Contenu du post</label><br />
-                              <textarea id="content" name="content"><?= htmlspecialchars($post->content) ?></textarea>
+                           <div class="mb-3">
+                              <label for="content" class="form-label">Contenu du post</label><br />
+                              <textarea id="content" name="content" class="form-control"><?= htmlspecialchars($post->content) ?></textarea>
                            </div>
-                           <div>
-                              <input type="submit" />
+                           <div class="mb-3">
+                           <button type="submit" class="btn btn-primary">Modifier</button>
                            </div>
                         </form>
 

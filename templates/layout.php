@@ -58,9 +58,30 @@
                     <li class="page-scroll">
                         <a href="index.php#contact">Contact</a>
                     </li>
+                    <?php
+                    if (isset($_SESSION["role_id"]))
+                    {
+                        ?>
                     <li class="page-scroll">
                         <a href="index.php?action=disconnect">Se déconnecter</a>
                     </li>
+                    <?php
+                        if($_SESSION["role_id"] > '2'){
+                            ?>
+                    <li class="page-scroll">
+                        <a href="index.php?action=admin">Admin</a>
+                    </li>
+
+                            <?php
+                        }
+                    } else {
+                                ?>
+                    <li class="page-scroll">
+                        <a href="index.php?action=connexionpage">Se connecter</a>
+                    </li>
+                                <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -21,39 +21,37 @@ $title = "Administration"; ?>
             <?php
             if (isset($_SESSION['role_id']) && $_SESSION['role_id'] === "3")
             {?>
-                                        <h4>    
-                                Ajouter un post:
-                            </h4>
                             <form action="index.php?action=admincreatepost" method="post">
+                            <h4>Ajout d'un post</h4>  
                             <input id="user_id" name="user_id" type="hidden" value=<?= $_SESSION["user_id"]?>>
+                            <div class="mb-3">
+                            <label for="title" class="form-label">Titre</label>
+                            <input type="text" class="form-control" name="title" id="title" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="img">Choix de l'image</label><br />
+                                <select class="form-select" aria-label="Choix image" name="img" >
+                                <option value="cake.png" selected>cake</option>
+                                <option value="cabin.png">cabin</option>
+                                <option value="circus.png">circus</option>
+                                <option value="game.png">game</option>
+                                <option value="safe.png">safe</option>
+                                <option value="submarine.png">submarine</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="chapo" class="form-label">En bref</label>
+                                <textarea type="text" class="form-control" name="chapo" id="chapo"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Contenu</label>
+                                <textarea type="text" class="form-control" name="content" id="content"></textarea>
+                            </div>
 
-                            <div>
-                                <label for="title">Titre</label><br />
-                                <textarea id="title" name="title" required></textarea>
-                            </div>
-                            <div>
-                           <label for="img">Choix de l'image</label><br />
-                            <select name="img" size="6">
-                            <option value="cake.png" selected>cake</option>
-                            <option value="cabin.png">cabin</option>
-                            <option value="circus.png">circus</option>
-                            <option value="game.png">game</option>
-                            <option value="safe.png">safe</option>
-                            <option value="submarine.png">submarine</option>
-                            </select>
-                                </div>
-                            <div>
-                                <label for="chapo">En bref</label><br />
-                                <textarea id="chapo" name="chapo" required></textarea>
-                            </div>
-                            <div>
-                                <label for="content">Contenu</label><br />
-                                <textarea id="content" name="content" required></textarea>
-                            </div>
-                            <div>
-                                <input type="submit" />
-                            </div>
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
                             </form>
+                            <br />
+
                 <?php
                 }
             
