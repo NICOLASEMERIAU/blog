@@ -41,11 +41,15 @@ class CommentRepository
         return $comments;
     }    
     
-    public function getCommentsMultipleArticles(): array
+    public function getUnvalidatedComments(): array
     {
         $statement = $this->connexion->getConnexion()->prepare(
-            "SELECT id_comment, post_id, user_id, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, validation_comment
-            FROM comments ORDER BY comment_date DESC"
+            "SELECT firstname, id_comment, post_id, user_id, comment, validation_comment,
+            DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date
+            FROM comments
+            INNER JOIN users ON users.id_user = comments.user_id
+            WHERE validation_comment = 'non'
+            ORDER BY comment_date DESC"
         );
         $statement->execute();
 
@@ -58,6 +62,7 @@ class CommentRepository
             $comment->comment = $row['comment'];
             $comment->post = $row['post_id'];
             $comment->validation = $row['validation_comment'];
+            $comment->firstname = $row['firstname'];
 
 
             $comments[] = $comment;

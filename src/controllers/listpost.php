@@ -25,10 +25,6 @@ class Listpost
         $postRepository->connexion = $connexion;
         $posts = $postRepository->getPosts();
 
-        $commentRepository = new CommentRepository();
-        $commentRepository->connexion = $connexion;
-        $comments = $commentRepository->getCommentsMultipleArticles();
-
         require('templates/listpost.php');
     }
 }
