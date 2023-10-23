@@ -76,14 +76,14 @@
                             <form action="index.php?action=addComment&post_id=<?= $post->identifier ?>" method="post">
                             <input id="user_id" name="user_id" type="hidden" value=<?= $_SESSION["user_id"]?>>
 
-                            <div>
-                                <label for="comment">Commentaire</label><br />
-                                <textarea id="comment" name="comment"></textarea>
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Commentaire</label>
+                                <textarea type="text" class="form-control" name="comment" id="comment"></textarea>
                             </div>
-                            <div>
-                                <input type="submit" />
-                            </div>
+
+                            <button type="submit" class="btn btn-primary">Ajouter un commentaire</button>
                             </form>
+
                             <?php
                     }        ?>
                 </div>
@@ -114,12 +114,12 @@
                             </h4>
                             <form action="index.php?action=updateComment&comment_id=<?= $comment->identifier ?>&post_id=<?= $comment->post ?>" method="post">
                             <input id="user_id" name="user_id" type="hidden" value=<?= $comment->user_id?>>
-                           <div>
-                              <label for="comment">Commentaire</label><br />
-                              <textarea id="comment" name="comment"><?= htmlspecialchars($comment->comment) ?></textarea>
+                           <div class="mb-3">
+                              <label for="comment" class="form-label">Commentaire</label><br />
+                              <textarea id="comment" name="comment" class="form-control"><?= htmlspecialchars($comment->comment) ?></textarea>
                            </div>
-                           <div>
-                              <input type="submit" />
+                           <div class="mb-3">
+                           <button type="submit" class="btn btn-primary">Modifier</button>
                            </div>
                         </form>
                         </div>    

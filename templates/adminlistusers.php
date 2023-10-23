@@ -21,21 +21,21 @@ $title = "Administration"; ?>
             <?php
                         foreach ($users as $user) {
                                 ?>
-                        <form action="index.php?action=adminmodifyuser" method="post">
+                        <form action="index.php?action=adminmodifyuser" method="post" >
                                 <p><strong><?= htmlspecialchars($user->firstname) ?> <?= htmlspecialchars($user->lastname) ?></strong> 
-                                <div>
+                                <div class="mb-3">
                             <input id="user_id" name="user_id" type="hidden" value=<?= $user->identifier?>>
-                           <label for="role">Rôle de l'utilisateur</label><br />
-                            <select name="role" size="3">
+                           <label for="role" class="form-label">Rôle de l'utilisateur</label><br />
+                            <select class="form-select" name="role" size="3">
                             <option value="1" <?php if ($user->role_id === "1"){echo 'selected';} ?>>Visiteur</option>
                             <option value="2" <?php if ($user->role_id === "2"){echo 'selected';} ?>>Auditeur</option>
                             <option value="3" <?php if ($user->role_id === "3"){echo 'selected';} ?>>Administrateur</option>
                             </select>
                                 </div>
-                                <div>
-                              <input type="submit" />
+                                <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Modifier</button>
                            </div>
-                        </form>
+                        </form> <br /><br /><br />
 
                                 <?php
                                 }

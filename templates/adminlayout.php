@@ -50,6 +50,9 @@
                         <a href="index.php#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                    <a href="index.php?action=list">Retour au blog</a>
+                    </li>
+                    <li class="page-scroll">
                     <a href="index.php?action=admin">Les posts</a>
                     </li>
                     <li class="page-scroll">
