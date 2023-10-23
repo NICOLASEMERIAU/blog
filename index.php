@@ -11,11 +11,13 @@ require_once('src/controllers/adminupdatepost.php');
 require_once('src/controllers/admincreatepost.php');
 require_once('src/controllers/admindeletepost.php');
 require_once('src/controllers/adminvalidatecomment.php');
+require_once('src/controllers/AdminListUnvalidatedComments.php');
 require_once('src/controllers/adminlistusers.php');
 require_once('src/controllers/adminmodifyuser.php');
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/connexion.php');
 require_once('src/controllers/useradd.php');
+
 
 use Application\Controllers\Comment\Add\AddComment;
 use Application\Controllers\Comment\Update\UpdateComment;
@@ -23,6 +25,7 @@ use Application\Controllers\OnePost\OnePost;
 use Application\Controllers\AdminOnePost\AdminOnePost;
 use Application\Controllers\Listpost\Listpost;
 use Application\Controllers\AdminListpost\AdminListpost;
+use Application\Controllers\AdminListUnvalidatedComments\AdminListUnvalidatedComments;
 use Application\Controllers\AdminUpdatepost\AdminUpdatepost;
 use Application\Controllers\AdminCreatepost\AdminCreatepost;
 use Application\Controllers\AdminDeletepost\AdminDeletepost;
@@ -168,6 +171,15 @@ try {
             if ($_SESSION['role_id'] === '3') 
             {
                 (new AdminListUsers())->execute();
+            }
+            else {
+            throw new Exception('Impossible de vous connecter à l\'espace administration. Vous n\'avez pas les autorisations.');
+            }
+
+        } elseif ($_GET['action'] === 'adminlistunvalidatedcomments') {
+            if ($_SESSION['role_id'] >'1') 
+            {
+                (new AdminListUnvalidatedComments())->execute();
             }
             else {
             throw new Exception('Impossible de vous connecter à l\'espace administration. Vous n\'avez pas les autorisations.');

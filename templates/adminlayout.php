@@ -52,6 +52,9 @@
                     <li class="page-scroll">
                     <a href="index.php?action=admin">Les posts</a>
                     </li>
+                    <li class="page-scroll">
+                    <a href="index.php?action=adminlistunvalidatedcomments">Les commentaires</a>
+                    </li>
                     <?php
                     if ($_SESSION['role_id'] === '3') 
                    {
