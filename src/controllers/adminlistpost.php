@@ -12,15 +12,17 @@ use Application\Model\Post\Post;
 
 class AdminListpost
 {
-    public function execute()
+    public function execute(int $page)
     {
-
+        $postsPerPage = PostRepository::POSTS_PER_PAGE;
         $connexion = new Database();
 
         $postRepository = new PostRepository();
         $postRepository->connexion = $connexion;
-        $posts = $postRepository->getPosts();
+        $posts = $postRepository->getPosts($page);
+        $total = $postRepository->countTotal();
 
         require('templates/adminlistpost.php');
     }
+
 }

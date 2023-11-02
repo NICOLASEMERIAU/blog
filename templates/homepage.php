@@ -51,7 +51,7 @@ $title= "Accueil";?>
                     <h2>Accès au blog</h2>
                     <hr class="star-light">
                     <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <a href="index.php?action=list" class="btn btn-lg btn-outline"> Simple visite  </a>
+                        <a href="index.php?action=list&page=1" class="btn btn-lg btn-outline"> Simple visite  </a>
                      </div>
                      <div class="col-lg-8 col-lg-offset-2 text-center">
                         <a href="index.php?action=connexionpage" class="btn btn-lg btn-outline"> Se connecter  </a>

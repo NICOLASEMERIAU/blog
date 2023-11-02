@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Application\Model\PostRepository;
 
 require_once('src/lib/database.php');
@@ -10,16 +11,23 @@ use Application\Model\Post\Post;
 
 class PostRepository
 {
+    public const POSTS_PER_PAGE = 4;
+    
     public Database $connexion;
 
     public function getPost(string $identifier): Post
     {
         $statement = $this->connexion->getConnexion()->prepare(
-            "SELECT id_post, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, img, chapo FROM posts WHERE id_post = ?"
+            "SELECT id_post, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') 
+            AS french_creation_date, img, chapo FROM posts WHERE id_post = ?"
         );
         $statement->execute([$identifier]);
 
         $row = $statement->fetch();
+        if ($row === false){
+            throw new \Exception('Aucun identifiant de billet envoyé');
+        } 
+
         $post = new Post();
         $post->title = $row['title'];
         $post->frenchCreationDate = $row['french_creation_date'];
@@ -32,11 +40,12 @@ class PostRepository
         return $post;
     }
 
-    public function getPosts(): array
+    public function getPosts(int $page): array
     {
+        $offset = ($page - 1) * self::POSTS_PER_PAGE;
         $statement = $this->connexion->getConnexion()->query(
             "SELECT id_post, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, img, chapo FROM posts 
-            ORDER BY creation_date DESC LIMIT 0, 10"
+            ORDER BY creation_date DESC LIMIT ".$offset.", ".self::POSTS_PER_PAGE
         );
         $posts = [];
         while (($row = $statement->fetch())) {
@@ -53,6 +62,16 @@ class PostRepository
         }
 
         return $posts;
+    }
+
+    public function countTotal() : int
+    {
+        $statement = $this->connexion->getConnexion()->prepare("SELECT COUNT(id_post) FROM posts");
+        $statement->execute();
+
+        return $statement->fetchColumn();
+
+
     }
 
     public function createPost(string $user_id, string $content, string $chapo, string $img, string $title): bool
