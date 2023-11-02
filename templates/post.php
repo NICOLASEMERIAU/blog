@@ -132,7 +132,7 @@
                                 }
                             ?>
 
-<p><a href="index.php?action=list">Retour à la liste des billets</a></p>
+<p><a href="index.php?action=list&page=1">Retour à la liste des billets</a></p>
 
 <?php $content = ob_get_clean(); ?>
 

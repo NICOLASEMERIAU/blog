@@ -39,7 +39,7 @@ use Application\Controllers\UserAdd\UserAdd;
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
         if ($_GET['action'] === 'list') {
-            (new Listpost())->execute();
+            (new Listpost())->execute($_GET['page'] ? (int)$_GET['page'] : 1);
         }
         elseif ($_GET['action'] === 'post') {
             if (isset($_GET['post_id']) && $_GET['post_id'] > 0) {
@@ -76,7 +76,7 @@ try {
 
         } elseif ($_GET['action'] === 'admin') {
             if ($_SESSION['role_id'] > '1') {
-                (new AdminListpost())->execute();
+                (new AdminListpost())->execute($_GET['page'] ? (int)$_GET['page'] : 1);
             }
             else {
             throw new Exception('Impossible de vous connecter à l\'espace administration. Vous n\'avez pas les autorisations.');

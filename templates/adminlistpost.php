@@ -83,7 +83,42 @@ $title = "Administration"; ?>
             </div>
             <?php
             }
+
             ?>
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <?php
+                    if($page > 1){
+                        ?>
+                        <li class="page-item">
+                    <a class="page-link" href="index.php?action=admin&page=<?=($page - 1)?>">Précédent</a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                    $nbPages = ceil($total / $postsPerPage);
+                    for ($i = 1; $i <= $nbPages; $i++) {
+                        ?>
+                    <li class="page-item <?php if ($page === $i){echo 'active';}?>">
+                        <a class="page-link" href="index.php?action=admin&page=<?=$i?>"><?=$i?></a></li>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if($page < $nbPages){
+                        ?>
+                        <li class="page-item">
+                    <a class="page-link" href="index.php?action=admin&page=<?=($page + 1)?>">Suivant</a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </nav>
+
+
        </div>
     </section>
 

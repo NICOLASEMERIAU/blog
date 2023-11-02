@@ -48,10 +48,10 @@ class CommentRepository
             DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date
             FROM comments
             INNER JOIN users ON users.id_user = comments.user_id
-            WHERE validation_comment = 'non'
+            WHERE validation_comment = ?
             ORDER BY comment_date DESC"
         );
-        $statement->execute();
+        $statement->execute([false]);
 
         $comments = [];
         while (($row = $statement->fetch())) {
@@ -119,9 +119,9 @@ class CommentRepository
     public function validateComment(string $identifier): bool
     {
         $statement = $this->connexion->getConnexion()->prepare(
-            'UPDATE comments SET validation_comment = "oui" WHERE id_comment = ?'
+            'UPDATE comments SET validation_comment = ? WHERE id_comment = ?'
         );
-        $affectedLines = $statement->execute([$identifier]);
+        $affectedLines = $statement->execute([true, $identifier]);
 
         return ($affectedLines > 0);
     }
