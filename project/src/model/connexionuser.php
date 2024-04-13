@@ -22,13 +22,13 @@ class ConnexionUser
         $row = $statement->fetch();
 
         if($row)
-        { 
+        {
             $hash = $row['password_user'];
             if (password_verify( $input['password'] , $hash ))
             {
                 return true;
             }
-    
+
         }
         else
         {

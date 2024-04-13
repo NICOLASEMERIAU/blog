@@ -2,24 +2,24 @@
 $title = "Les posts du blog"; ?>
 
 <?php ob_start(); ?>
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Bienvenue
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Bienvenue
                     <?php
                     if (isset($_SESSION["firstname"]))
                     {
                         echo $_SESSION["firstname"];
                     }    ?>
 
-                    </h2>
-                    <hr class="star-primary">
-                </div>
+                </h2>
+                <hr class="star-primary">
             </div>
-            <?php
-            foreach ($posts as $post) {
+        </div>
+        <?php
+        foreach ($posts as $post) {
             ?>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
@@ -32,64 +32,64 @@ $title = "Les posts du blog"; ?>
                         <img src="img/portfolio/<?= $post->image; ?>" class="img-responsive" alt="">
                     </a>
                 </div>
-                
+
                 <div class="col-sm-8 portfolio-item">
-                <h2>
-                    <?= htmlspecialchars($post->title); ?>
-                </h2>
+                    <h2>
+                        <?= htmlspecialchars($post->title); ?>
+                    </h2>
 
-                <p>
-                    <?= nl2br(htmlspecialchars($post->chapo)); ?>
-                </p>
+                    <p>
+                        <?= nl2br(htmlspecialchars($post->chapo)); ?>
+                    </p>
 
-                <?= $post->frenchCreationDate; ?>
+                    <?= $post->frenchCreationDate; ?>
                 </div>
             </div>
             <?php
-            }
-            ?>
-           <nav aria-label="...">
-                <ul class="pagination">
-                    <?php
-                    if($page > 1){
-                        ?>
-                        <li class="page-item">
-                    <a class="page-link" href="index.php?action=list&page=<?=($page - 1)?>">Précédent</a>
+        }
+        ?>
+        <nav aria-label="...">
+            <ul class="pagination">
+                <?php
+                if($page > 1){
+                    ?>
+                    <li class="page-item">
+                        <a class="page-link" href="index.php?action=list&page=<?=($page - 1)?>">Précédent</a>
                     </li>
                     <?php
-                    }
-                    ?>
+                }
+                ?>
 
-                    <?php
-                    $nbPages = ceil($total / $postsPerPage);
-                    for ($i = 1; $i <= $nbPages; $i++) {
-                        ?>
+                <?php
+                $nbPages = ceil($total / $postsPerPage);
+                for ($i = 1; $i <= $nbPages; $i++) {
+                    ?>
                     <li class="page-item <?php if ($page === $i){echo 'active';}?>">
                         <a class="page-link" href="index.php?action=list&page=<?=$i?>"><?=$i?></a></li>
                     <?php
-                    }
+                }
+                ?>
+                <?php
+                if($page < $nbPages){
                     ?>
-                    <?php
-                    if($page < $nbPages){
-                        ?>
-                        <li class="page-item">
-                    <a class="page-link" href="index.php?action=list&page=<?=($page + 1)?>">Suivant</a>
+                    <li class="page-item">
+                        <a class="page-link" href="index.php?action=list&page=<?=($page + 1)?>">Suivant</a>
                     </li>
                     <?php
-                    }
-                    ?>
-                </ul>
-            </nav>
+                }
+                ?>
+            </ul>
+        </nav>
 
 
 
-       </div>
-    </section>
+    </div>
+</section>
 
 
 
 
-<?php 
+<?php
 $content = ob_get_clean(); ?>
 
 <?php require('layout.php') ?>
