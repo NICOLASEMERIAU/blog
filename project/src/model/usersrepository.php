@@ -38,7 +38,7 @@ class UsersRepository
     public function createUser(string $firstname, string $lastname, string $mail, string $password): bool
     {
         $statement = $this->connexion->getConnexion()->prepare(
-            'INSERT INTO users(firstname, lastname, mail, password_user) VALUES(?, ?, ?, ?)'
+            'INSERT INTO users(firstname, lastname, mail, password_user, role_id) VALUES(?, ?, ?, ?, 1)'
         );
         $affectedLines = $statement->execute([$firstname, $lastname, $mail, $password]);
 
