@@ -14,7 +14,7 @@ class AdminUpdatePost
 {
     public function execute(?array $input)
     {
-        if ($input !== null) 
+        if ($input !== null)
         {
             if (!empty($input['post_id']) && !empty($input['content']) && !empty($input['title']) && !empty($input['chapo']) && !empty($input['img'])) {
                 $post_id = $input['post_id'];

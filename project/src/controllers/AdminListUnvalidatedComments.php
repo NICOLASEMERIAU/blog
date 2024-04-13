@@ -14,12 +14,12 @@ class AdminListUnvalidatedComments
 {
     public function execute()
     {
-        
-            $commentRepository = new CommentRepository();
-            $commentRepository->connexion = new Database();
-            $comments= $commentRepository->getUnvalidatedComments();
 
-            require('templates/AdminListUnvalidatedComments.php');
+        $commentRepository = new CommentRepository();
+        $commentRepository->connexion = new Database();
+        $comments= $commentRepository->getUnvalidatedComments();
+
+        require('templates/AdminListUnvalidatedComments.php');
 
     }
 }

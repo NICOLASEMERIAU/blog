@@ -14,12 +14,12 @@ class AdminValidateComment
 {
     public function execute(string $identifier, string $identifierPost)
     {
-        
-            $commentRepository = new CommentRepository();
-            $commentRepository->connexion = new Database();
-            $commentRepository->validateComment($identifier);
 
-        header('Location: index.php?action=adminonepost&post_id='.$identifierPost.'');        
+        $commentRepository = new CommentRepository();
+        $commentRepository->connexion = new Database();
+        $commentRepository->validateComment($identifier);
+
+        header('Location: index.php?action=adminonepost&post_id='.$identifierPost.'');
 
     }
 }

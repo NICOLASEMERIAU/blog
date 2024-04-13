@@ -14,13 +14,13 @@ class AdminDeletePost
 {
     public function execute(string $identifier)
     {
-            $postRepository = new PostRepository();
-            $postRepository->connexion = new Database();
-            $success = $postRepository->deletePost($identifier);
-            if (!$success) {
-                throw new \Exception('Impossible de supprimer le post!');
-            } else {
-                header('Location: index.php?action=admin');
-            }
+        $postRepository = new PostRepository();
+        $postRepository->connexion = new Database();
+        $success = $postRepository->deletePost($identifier);
+        if (!$success) {
+            throw new \Exception('Impossible de supprimer le post!');
+        } else {
+            header('Location: index.php?action=admin');
+        }
     }
 }
