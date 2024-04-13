@@ -8,6 +8,7 @@ require_once('src/model/post.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\Post\Post;
+use PDO;
 
 class PostRepository
 {
@@ -43,10 +44,13 @@ class PostRepository
     public function getPosts(int $page): array
     {
         $offset = ($page - 1) * self::POSTS_PER_PAGE;
-        $statement = $this->connexion->getConnexion()->query(
-            "SELECT id_post, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, img, chapo FROM posts 
-            ORDER BY creation_date DESC LIMIT ".$offset.", ".self::POSTS_PER_PAGE
-        );
+        $query = "SELECT id_post, title, content, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, img, chapo FROM posts 
+          ORDER BY creation_date DESC LIMIT :offset, :limit";
+
+        $statement = $this->connexion->getConnexion()->prepare($query);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $statement->bindValue(':limit', self::POSTS_PER_PAGE, PDO::PARAM_INT);
+        $statement->execute();
         $posts = [];
         while (($row = $statement->fetch())) {
             $post = new Post();
