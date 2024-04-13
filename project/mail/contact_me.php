@@ -48,7 +48,6 @@ try {
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Contact from blog';
     $mail->Body = $message;
-//    $mail->AltBody = $message;
 
     $mail->send();
     return true;
