@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Model\rolesRepository;
+namespace Application\Model\RolesRepository;
 
 require_once('src/lib/database.php');
 require_once('src/model/role.php');
@@ -9,7 +9,7 @@ use Application\Lib\Database\Database;
 use Application\Model\Role\Role;
 
 
-class rolesRepository
+class RolesRepository
 {
     public Database $connexion;
 
