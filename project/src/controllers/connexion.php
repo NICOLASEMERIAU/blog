@@ -14,7 +14,7 @@ use Application\Model\Connected\Connected;
 
 class Connexion
 {
-    public function execute(array $input)
+    public function execute(array $input): mixed
     {
         $connexion = new Database();
 

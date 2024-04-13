@@ -12,7 +12,7 @@ use Application\Model\UsersRepository\UsersRepository;
 
 class UserAdd
 {
-    public function execute(array $input)
+    public function execute(array $input): mixed
     {
         if (!empty($input['firstname']) && !empty($input['lastname']) && !empty($input['mail']) && !empty($input['password'])) {
             $firstname = $input['firstname'];

@@ -4,7 +4,7 @@ namespace Application\Controllers\Homepage;
 
 class Homepage
 {
-    public function execute()
+    public function execute(): mixed
     {
         require('templates/homepage.php');
     }
