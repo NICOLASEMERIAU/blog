@@ -16,7 +16,9 @@ class CommentRepository
     public function getComments(string $post): array
     {
         $statement = $this->connexion->getConnexion()->prepare(
-            "SELECT id_comment, user_id, firstname, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, post_id, validation_comment
+            "SELECT id_comment, user_id, firstname, comment, 
+       DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date, 
+       post_id, validation_comment
             FROM comments 
             INNER JOIN users ON users.id_user = comments.user_id
             WHERE post_id = ? ORDER BY comment_date DESC"
@@ -39,8 +41,8 @@ class CommentRepository
         }
 
         return $comments;
-    }    
-    
+    }
+
     public function getUnvalidatedComments(): array
     {
         $statement = $this->connexion->getConnexion()->prepare(
@@ -51,7 +53,7 @@ class CommentRepository
             WHERE validation_comment = ?
             ORDER BY comment_date DESC"
         );
-        $statement->execute([false]);
+        $statement->execute(["false"]);
 
         $comments = [];
         while (($row = $statement->fetch())) {
@@ -121,7 +123,7 @@ class CommentRepository
         $statement = $this->connexion->getConnexion()->prepare(
             'UPDATE comments SET validation_comment = ? WHERE id_comment = ?'
         );
-        $affectedLines = $statement->execute([true, $identifier]);
+        $affectedLines = $statement->execute(["true", $identifier]);
 
         return ($affectedLines > 0);
     }
