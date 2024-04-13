@@ -1,22 +1,22 @@
 <?php
 session_start();
 
-require_once('src/controllers/comment/add.php');
-require_once('src/controllers/comment/update.php');
-require_once('src/controllers/onepost.php');
-require_once('src/controllers/adminonepost.php');
-require_once('src/controllers/listpost.php');
-require_once('src/controllers/adminlistpost.php');
-require_once('src/controllers/adminupdatepost.php');
-require_once('src/controllers/admincreatepost.php');
-require_once('src/controllers/admindeletepost.php');
-require_once('src/controllers/adminvalidatecomment.php');
-require_once('src/controllers/AdminListUnvalidatedComments.php');
-require_once('src/controllers/adminlistusers.php');
-require_once('src/controllers/adminmodifyuser.php');
-require_once('src/controllers/homepage.php');
-require_once('src/controllers/connexion.php');
-require_once('src/controllers/useradd.php');
+require_once'src/controllers/comment/add.php';
+require_once'src/controllers/comment/update.php';
+require_once'src/controllers/onepost.php';
+require_once'src/controllers/adminonepost.php';
+require_once'src/controllers/listpost.php';
+require_once'src/controllers/adminlistpost.php';
+require_once'src/controllers/adminupdatepost.php';
+require_once'src/controllers/admincreatepost.php';
+require_once'src/controllers/admindeletepost.php';
+require_once'src/controllers/adminvalidatecomment.php';
+require_once'src/controllers/AdminListUnvalidatedComments.php';
+require_once'src/controllers/adminlistusers.php';
+require_once'src/controllers/adminmodifyuser.php';
+require_once'src/controllers/homepage.php';
+require_once'src/controllers/connexion.php';
+require_once'src/controllers/useradd.php';
 
 
 use Application\Controllers\Comment\Add\AddComment;

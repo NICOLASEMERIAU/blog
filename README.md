@@ -10,7 +10,7 @@ To begin using this blog, follow this to get started:
 `git clone git@github.com:NICOLASEMERIAU/blog.git`
 ```
 * Install docker environment, make sure to have updated version of docker and docker-compose.
-
+* Go to the folder "blog" and open a terminal
 ```sh
 docker compose build --no-cache
 ```
