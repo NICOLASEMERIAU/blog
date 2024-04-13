@@ -14,7 +14,7 @@ class AdminModifyUser
 {
     public function execute(?array $input)
     {
-        if ($input !== null) 
+        if ($input !== null)
         {
             $user_id = null;
             $comment = null;
@@ -24,12 +24,12 @@ class AdminModifyUser
             } else {
                 throw new \Exception('Les données du formulaire sont invalides.');
             }
-        
+
             $usersRepository = new UsersRepository();
             $usersRepository->connexion = new Database();
             $usersRepository->modifyUserStatus($identifier, $role_id);
 
-            header('Location: index.php?action=adminlistuser');        
+            header('Location: index.php?action=adminlistuser');
 
         }
     }

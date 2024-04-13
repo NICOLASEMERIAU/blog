@@ -12,7 +12,7 @@ use Application\Model\Post\Post;
 class PostRepository
 {
     public const POSTS_PER_PAGE = 4;
-    
+
     public Database $connexion;
 
     public function getPost(string $identifier): Post
@@ -26,7 +26,7 @@ class PostRepository
         $row = $statement->fetch();
         if ($row === false){
             throw new \Exception('Aucun identifiant de billet envoyé');
-        } 
+        }
 
         $post = new Post();
         $post->title = $row['title'];
@@ -77,7 +77,7 @@ class PostRepository
     public function createPost(string $user_id, string $content, string $chapo, string $img, string $title): bool
     {
         $statement = $this->connexion->getConnexion()->prepare(
-            'INSERT INTO posts(author_id, content, chapo, img, title, creation_date) VALUES(?, ?, ?, ?, ?, NOW())'
+            'INSERT INTO posts(user_id, content, chapo, img, title, creation_date) VALUES(?, ?, ?, ?, ?, NOW())'
         );
         $affectedLines = $statement->execute([$user_id, $content, $chapo, $img, $title]);
 
@@ -92,8 +92,8 @@ class PostRepository
         $affectedLines = $statement->execute([$content, $chapo, $img, $title, $identifier]);
 
         return ($affectedLines > 0);
-    }    
-    
+    }
+
     public function deletePost(string $identifier): bool
     {
         $statement = $this->connexion->getConnexion()->prepare(
