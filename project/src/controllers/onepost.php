@@ -16,7 +16,7 @@ use Application\Model\Post\Post;
 
 class OnePost
 {
-    public function execute(string $identifier)
+    public function execute(string $identifier): mixed
     {
         $connexion = new Database();
 

@@ -12,7 +12,7 @@ use Application\Model\CommentRepository\CommentRepository;
 
 class AdminValidateComment
 {
-    public function execute(string $identifier, string $identifierPost)
+    public function execute(string $identifier, string $identifierPost): mixed
     {
 
         $commentRepository = new CommentRepository();
