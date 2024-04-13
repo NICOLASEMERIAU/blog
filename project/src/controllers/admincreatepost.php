@@ -12,7 +12,7 @@ use Application\Model\PostRepository\PostRepository;
 
 class AdminCreatePost
 {
-    public function execute(array $input)
+    public function execute(array $input): mixed
     {
         $user_id = null;
         $content = null;

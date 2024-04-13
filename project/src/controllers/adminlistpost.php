@@ -12,7 +12,7 @@ use Application\Model\Post\Post;
 
 class AdminListpost
 {
-    public function execute(int $page)
+    public function execute(int $page): mixed
     {
         $postsPerPage = PostRepository::POSTS_PER_PAGE;
         $connexion = new Database();

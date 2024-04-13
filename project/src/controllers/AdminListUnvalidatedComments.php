@@ -12,7 +12,7 @@ use Application\Model\CommentRepository\CommentRepository;
 
 class AdminListUnvalidatedComments
 {
-    public function execute()
+    public function execute(): mixed
     {
 
         $commentRepository = new CommentRepository();
