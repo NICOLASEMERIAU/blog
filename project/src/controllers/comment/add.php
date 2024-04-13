@@ -4,7 +4,7 @@ namespace Application\Controllers\Comment\Add;
 
 require_once('src/lib/database.php');
 require_once('src/model/comment.php');
-require_once('src/model/commentrepository.php');
+require_once('src/model/commentRepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\Comment\Comment;
@@ -12,7 +12,7 @@ use Application\Model\CommentRepository\CommentRepository;
 
 class AddComment
 {
-    public function execute(string $post, array $input)
+    public function execute(string $post, array $input): mixed
     {
         $user_id = null;
         $comment = null;

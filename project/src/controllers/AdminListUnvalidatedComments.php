@@ -4,7 +4,7 @@ namespace Application\Controllers\AdminListUnvalidatedComments;
 
 require_once('src/lib/database.php');
 require_once('src/model/comment.php');
-require_once('src/model/commentrepository.php');
+require_once('src/model/commentRepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\Comment\Comment;

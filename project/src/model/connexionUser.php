@@ -2,8 +2,8 @@
 
 namespace Application\Model\ConnexionUser;
 
-require_once('src/lib/database.php');
-require_once('src/model/connected.php');
+require_once 'src/lib/database.php';
+require_once 'src/model/connected.php';
 
 use Application\Lib\Database\Database;
 use Application\Model\Connected\Connected;
