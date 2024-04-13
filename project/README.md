@@ -1,27 +1,42 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
+# [Start the Blog]
 
-[Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, and a working PHP contact form.
+The Blog is a website created by Nicolas Emeriau. This website contains a responsive portfolio grid with hover effects, full page portfolio item modals, a working PHP contact form and a blog.
 
 ## Getting Started
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-freelancer.git`
-* Fork the repo
+To begin using this blog, follow this to get started:
+* Clone the repo: 
+```sh
+`git clone git@github.com:NICOLASEMERIAU/blog.git`
+```
+* Install docker environment, make sure to have updated version of docker and docker-compose.
+
+```sh
+docker compose build --no-cache
+```
+```sh
+docker compose up -d
+```
+
+* Configure your mail parameters in the file project/mail/contact_me.php
+
+* Check your database http://127.0.0.1:8080/index.php?route=/
+* Write this : Id = root and Password empty
+* Import blog.sql
+* Let's go to http://localhost:8741/
 
 ## Bugs and Issues
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-freelancer/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/).
+Have a bug or an issue with this blog? [Open a new issue](https://github.com/NICOLASEMERIAU/blog/issues/new) here on GitHub.
 
 ## Creator
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+The Blog was created by and is maintained by Nicolas Emeriau.
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+* https://github.com/NICOLASEMERIAU
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+The Blog is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-## Copyright and License
+## Copyright
 
-Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/gh-pages/LICENSE) license.
+Copyright 2024 Toolsvet
