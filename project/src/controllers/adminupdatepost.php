@@ -12,7 +12,7 @@ use Application\Model\PostRepository\PostRepository;
 
 class AdminUpdatePost
 {
-    public function execute(?array $input)
+    public function execute(?array $input): mixed
     {
         if ($input !== null)
         {

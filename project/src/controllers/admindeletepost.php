@@ -12,7 +12,7 @@ use Application\Model\PostRepository\PostRepository;
 
 class AdminDeletePost
 {
-    public function execute(string $identifier)
+    public function execute(string $identifier): mixed
     {
         $postRepository = new PostRepository();
         $postRepository->connexion = new Database();

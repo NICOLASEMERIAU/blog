@@ -14,7 +14,7 @@ use Application\Model\User\User;
 
 class AdminListUsers
 {
-    public function execute()
+    public function execute(): mixed
     {
 
         $connexion = new Database();

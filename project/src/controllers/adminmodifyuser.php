@@ -12,7 +12,7 @@ use Application\Model\UsersRepository\UsersRepository;
 
 class AdminModifyUser
 {
-    public function execute(?array $input)
+    public function execute(?array $input): mixed
     {
         if ($input !== null)
         {

@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title><?= $title ?></title>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
