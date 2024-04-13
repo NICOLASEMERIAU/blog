@@ -4,8 +4,8 @@ namespace Application\Controllers\AdminListUsers;
 
 require_once('src/lib/database.php');
 require_once('src/model/user.php');
-require_once('src/model/usersrepository.php');
-require_once('src/model/rolesrepository.php');
+require_once('src/model/usersRepository.php');
+require_once('src/model/rolesRepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\rolesRepository\rolesRepository;

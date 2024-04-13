@@ -3,7 +3,7 @@
 namespace Application\Controllers\Connexion;
 
 require_once('src/lib/database.php');
-require_once('src/model/connexionuser.php');
+require_once('src/model/connexionUser.php');
 require_once('src/model/connected.php');
 
 

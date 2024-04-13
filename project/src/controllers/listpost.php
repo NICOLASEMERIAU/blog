@@ -4,7 +4,7 @@ namespace Application\Controllers\Listpost;
 
 require_once('src/lib/database.php');
 require_once('src/model/post.php');
-require_once('src/model/postrepository.php');
+require_once('src/model/postRepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\PostRepository\PostRepository;
@@ -23,6 +23,6 @@ class Listpost
         $posts = $postRepository->getPosts($page);
         $total = $postRepository->countTotal();
 
-        require('templates/listpost.php');
+        require 'templates/listpost.php';
     }
 }

@@ -4,7 +4,7 @@ namespace Application\Controllers\AdminModifyUser;
 
 require_once('src/lib/database.php');
 require_once('src/model/user.php');
-require_once('src/model/usersrepository.php');
+require_once('src/model/usersRepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\User\User;

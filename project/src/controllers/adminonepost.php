@@ -4,9 +4,9 @@ namespace Application\Controllers\AdminOnePost;
 
 require_once('src/lib/database.php');
 require_once('src/model/comment.php');
-require_once('src/model/commentrepository.php');
+require_once('src/model/commentRepository.php');
 require_once('src/model/post.php');
-require_once('src/model/postrepository.php');
+require_once('src/model/postRepository.php');
 
 use Application\Lib\Database\Database;
 use Application\Model\CommentRepository\CommentRepository;
