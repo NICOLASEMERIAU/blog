@@ -17,7 +17,16 @@ docker compose build --no-cache
 ```sh
 docker compose up -d
 ```
-
+```sh
+docker exec -it www_docker_blog bash
+```
+* Dans bash :
+```sh
+cd project
+```
+```sh
+composer install
+```
 * Configure your mail parameters in the file project/mail/contact_me.php
 
 * Check your database http://127.0.0.1:8080/index.php?route=/
